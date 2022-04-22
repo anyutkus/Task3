@@ -8,8 +8,8 @@ public static class IStackExtension
         
         while(!istack.IsEmpty())
         {
-            T s = istack.Pop();
-            newStack.Push(s);
+            T newItem = istack.Pop();
+            newStack.Push(newItem);
         }
         return newStack;
     }

@@ -11,12 +11,12 @@ class Program
         numbers.Push("four");
         numbers.Push("five");
 
-        Console.WriteLine($"numbers {numbers}");
+        Console.WriteLine($"numbers\n{numbers}");
 
         var numbers2 = numbers.Reverse();
 
-        Console.WriteLine($"numbers2\n {numbers2}");
-        Console.WriteLine($"numbers\n {numbers}");
+        Console.WriteLine($"numbers2\n{numbers2}");
+        Console.WriteLine($"numbers\n{numbers}");
         Console.WriteLine($"numbers isEmpty: {numbers.IsEmpty()}");
         Console.WriteLine($"numbers2 isEmpty: {numbers2.IsEmpty()}");
 
@@ -33,19 +33,19 @@ class Program
         num.Push(19);
 
         Console.WriteLine($"num isEmpty: {num.IsEmpty()}");
-        Console.WriteLine($"num:\n {num}");
+        Console.WriteLine($"num:\n{num}");
 
         var num2 = num.Reverse();
 
-        Console.WriteLine($"num2:\n {num2}");
+        Console.WriteLine($"num2:\n{num2}");
 
         Console.WriteLine($"num2 pop {num2.Pop()}");
         Console.WriteLine($"num2 pop {num2.Pop()}");
 
         num2.Push(0);
 
-        Console.WriteLine($"num\n {num}");
-        Console.WriteLine($"num2:\n {num2}");
+        Console.WriteLine($"num\n{num}");
+        Console.WriteLine($"num2:\n{num2}");
 
     }
 }

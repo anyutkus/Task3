@@ -4,6 +4,9 @@ class Program
 {
     public static void Main()
     {
+        var key0 = new Key((Note)107, (Octave)56, (Accidental)43);
+        Console.WriteLine(key0.ToString());
+
         var key1 = new Key(Note.C, Octave.First, Accidental.Flat);
         var key2 = new Key(Note.D, Octave.First, Accidental.Flat);
 

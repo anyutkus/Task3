@@ -9,51 +9,22 @@ public struct Key : IComparable<Key>
 
     public Key(Note note, Octave octave, Accidental accidental = Accidental.None)
     {
-        _octave = octave;
-        _note = note;
-        _accidental = accidental;
+        _octave = Enum.IsDefined(typeof(Octave), octave) ? octave : 0;
+        _note = Enum.IsDefined(typeof(Note), note) ? note : 0;
+        _accidental = Enum.IsDefined(typeof(Accidental), accidental) ? accidental : 0;
     }
 
     public override string ToString() => (_note.GetNote() + _accidental.GetAccidental() + _octave.GetOctave());
 
-    public override bool Equals(object obj)
-    {
-        if ((obj is Key key) && (this.ToKey() == key.ToKey()))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    public override bool Equals(object obj) => (obj is Key key) && (this.ToKey() == key.ToKey());
  
-    public override int GetHashCode()
-    {
-        return ToKey().GetHashCode();
-    }
+    public override int GetHashCode() => ToKey().GetHashCode();
 
-    public double ToKey()
-    {
-        double code = (int)_octave * 7 + (int)_note;
-        bool isCFNote = (_note == Note.C) || (_note == Note.F);
-        bool isBENote = (_note == Note.B) || (_note == Note.E);
-
-        if ((isCFNote && _accidental == Accidental.Flat) || (isBENote && _accidental == Accidental.Sharp))
-        {
-            code += (int)_accidental;
-        }
-        else
-        {
-            code += (int)_accidental * 0.5;
-        }
-
-        return code;
-    }
+    public int ToKey() => (int)_octave * 12 + (int)_note + (int)_accidental;
 
     public int CompareTo(Key key)
     {
-        double keyIndex = key.ToKey();
+        var keyIndex = key.ToKey();
 
         return this.ToKey().CompareTo(keyIndex);
     }

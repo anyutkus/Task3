@@ -43,4 +43,17 @@ public class Stack<T> : IStack<T>
 
         return str;
     }
+
+    public T[] GetItems
+    {
+        get
+        {
+            var copy = new T[_index + 1];
+            for (var i = 0; i <= _index; i++)
+            {
+                copy[i] = _elements[i];
+            }
+            return copy;
+        }
+    }
 }
